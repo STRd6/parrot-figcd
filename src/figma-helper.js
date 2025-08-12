@@ -210,6 +210,10 @@ module.exports = {
 
         const responseJson = await prepareReleaseResponse.json();
 
+        if (responseJson.error) {
+            throw responseJson.message;
+        }
+
         return (responseJson).meta;
     },
 
